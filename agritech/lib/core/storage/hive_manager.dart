@@ -4,7 +4,7 @@ class HiveManager {
   static const cropsBox = 'crops_box';
   static const weatherBox = 'weather_box';
   static const irrigationBox = 'irrigation_box';
- // static const marketBox = 'market_box';
+  static const marketBox = 'market_box';
 
   Future<Box> _open(String name) async => await Hive.openBox(name);
 

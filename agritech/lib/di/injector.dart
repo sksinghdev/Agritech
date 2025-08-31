@@ -22,6 +22,13 @@ import '../features/irrigation/domain/repositories/irrigation_repository.dart';
 import '../features/irrigation/domain/usecases/get_irrigation_usecase.dart';
 import '../features/irrigation/presentation/cubit/irrigation_cubit.dart';
 
+import '../features/market/data/sources/market_api_source.dart';
+import '../features/market/data/sources/market_local_source.dart';
+import '../features/market/data/repositories/market_repository_impl.dart';
+import '../features/market/domain/repositories/market_repository.dart';
+import '../features/market/domain/usecases/get_market_prices_usecase.dart';
+import '../features/market/presentation/cubit/market_cubit.dart';
+
 final getIt = GetIt.instance;
 
 Future<void> configureDependencies() async {
@@ -67,4 +74,17 @@ Future<void> configureDependencies() async {
   getIt.registerFactory(
       () => GetIrrigationUseCase(getIt<IrrigationRepository>()));
   getIt.registerFactory(() => IrrigationCubit(getIt<GetIrrigationUseCase>()));
+
+  // Market
+  getIt.registerLazySingleton<MarketApiSource>(
+      () => MarketApiSource(getIt<ApiService>()));
+  getIt.registerLazySingleton<MarketLocalSource>(
+      () => MarketLocalSource(getIt<HiveManager>()));
+  getIt.registerLazySingleton<MarketRepository>(
+    () => MarketRepositoryImpl(
+        getIt<MarketApiSource>(), getIt<MarketLocalSource>()),
+  );
+  getIt
+      .registerFactory(() => GetMarketPricesUseCase(getIt<MarketRepository>()));
+  getIt.registerFactory(() => MarketCubit(getIt<GetMarketPricesUseCase>()));
 }
