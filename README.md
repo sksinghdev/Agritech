@@ -1,3 +1,0 @@
-# Agritech
-# Agritech
-# Agritech
