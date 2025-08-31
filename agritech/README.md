@@ -26,7 +26,7 @@ The application is structured following **Clean Architecture**, separating conce
 ## 📁 Directory Structure
 
 
-'''
+```
 agritech
 ├── lib/
 │ ├── main.dart
@@ -109,8 +109,7 @@ agritech
 └── wiremock/
 ├── server.js
 └── stubs/crops.ejs
-
-'''
+```
 
 
 ### **Data Layer**
