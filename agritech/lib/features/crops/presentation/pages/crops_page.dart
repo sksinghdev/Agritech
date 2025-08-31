@@ -14,6 +14,7 @@ class CropsPage extends StatelessWidget {
     return BlocProvider(
       create: (_) => getIt<CropsCubit>()..load(),
       child: Scaffold(
+        backgroundColor:  Colors.green.shade100,
         body: BlocBuilder<CropsCubit, CropsState>(
           builder: (context, state) {
             switch (state.status) {
@@ -22,22 +23,26 @@ class CropsPage extends StatelessWidget {
 
               case CropsStatus.error:
                 return Center(
-                    child: Text(state.message ?? "An error occurred"));
+                  child: Text(
+                    state.message ?? "An error occurred",
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                );
 
               case CropsStatus.loaded:
                 return SafeArea(
-                  top: false,
+                  top: false, // Only bottom safe area applied
                   child: CustomScrollView(
                     slivers: [
                       SliverAppBar(
                         floating: true,
                         snap: true,
                         pinned: true,
-                        expandedHeight: 160,
+                        expandedHeight: 180,
                         flexibleSpace: FlexibleSpaceBar(
                           title: const Text("🌾 Crops"),
                           background: Container(
-                            color: Colors.green.shade200,
+                            color: Colors.green.shade400,
                             child: const Center(
                               child: Icon(Icons.eco,
                                   size: 80, color: Colors.white),
@@ -45,30 +50,33 @@ class CropsPage extends StatelessWidget {
                           ),
                         ),
                       ),
+
+                      // Offline banner
                       if (state.offline)
                         SliverToBoxAdapter(
                           child: Container(
                             width: double.infinity,
-                            color: Colors.red.shade300,
+                            color: Colors.red.shade400,
                             padding: const EdgeInsets.all(8),
                             child: const Text(
                               "You are offline. Showing cached data.",
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
                               textAlign: TextAlign.center,
                             ),
                           ),
                         ),
+
+                      // Crop list
                       SliverPadding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 8),
+                            horizontal: 8, vertical: 8),
                         sliver: SliverList(
                           delegate: SliverChildBuilderDelegate(
                             (context, index) {
                               final crop = state.crops[index];
-                              return Padding(
-                                padding: const EdgeInsets.only(bottom: 12),
-                                child: CropCard(crop: crop),
-                              );
+                              return CropCard(crop: crop);
                             },
                             childCount: state.crops.length,
                           ),
