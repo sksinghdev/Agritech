@@ -10,6 +10,6 @@ class CropsLocalSource {
 
   Future<Map<String, dynamic>?> read({Duration? ttl}) async {
     final map = await _hive.get(HiveManager.cropsBox, key, ttl: ttl);
-    return map?['data']?.cast<String, dynamic>();
+    return map?.cast<String, dynamic>();  
   }
 }

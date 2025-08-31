@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:get_it/get_it.dart';
 import 'package:dio/dio.dart';
 import '../core/network/api_service.dart';
+import '../core/network/network_service.dart';
 import '../core/storage/hive_manager.dart';
 import '../routes/app_router.dart';
 import '../features/crops/data/sources/crops_api_source.dart';
@@ -32,9 +35,9 @@ import '../features/market/presentation/cubit/market_cubit.dart';
 final getIt = GetIt.instance;
 
 Future<void> configureDependencies() async {
-  getIt.registerLazySingleton(
-      () => Dio(BaseOptions(baseUrl: 'http://localhost:4545')));
+  getIt.registerLazySingleton(() => Dio(BaseOptions(baseUrl: getBaseUrl())));
   getIt.registerLazySingleton(() => ApiService(getIt<Dio>()));
+  getIt.registerLazySingleton(() => NetworkService());
   getIt.registerLazySingleton(() => HiveManager());
   getIt.registerLazySingleton(() => AppRouter());
 
@@ -48,7 +51,8 @@ Future<void> configureDependencies() async {
         CropsRepositoryImpl(getIt<CropsApiSource>(), getIt<CropsLocalSource>()),
   );
   getIt.registerFactory(() => GetCropsUseCase(getIt<CropsRepository>()));
-  getIt.registerFactory(() => CropsCubit(getIt<GetCropsUseCase>()));
+  getIt.registerFactory(
+      () => CropsCubit(getIt<GetCropsUseCase>(), getIt<NetworkService>()));
 
 // Weather
   getIt.registerLazySingleton<WeatherApiSource>(
@@ -87,4 +91,17 @@ Future<void> configureDependencies() async {
   getIt
       .registerFactory(() => GetMarketPricesUseCase(getIt<MarketRepository>()));
   getIt.registerFactory(() => MarketCubit(getIt<GetMarketPricesUseCase>()));
+}
+
+String getBaseUrl() {
+  if (Platform.isAndroid) {
+    // Android Emulator
+    return "http://192.168.1.7:4545";
+  } else if (Platform.isIOS) {
+    // iOS Simulator
+    return "http://127.0.0.1:4545";
+  } else {
+    // Desktop or physical devices on same WiFi
+    return "http://192.168.1.7:4545"; // replace with your Mac LAN IP
+  }
 }

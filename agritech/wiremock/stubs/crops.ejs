@@ -1,0 +1,231 @@
+{
+  "id": "crops-api",
+  "port": 4545,
+  "protocol": "HTTP",
+  "request": {
+    "method": "GET",
+    "urlPath": "/crops"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "jsonBody": {
+      "crops": [
+        {
+          "id": 1,
+          "name": "Wheat",
+          "thumbnail": "https://picsum.photos/200/150?random=1",
+          "details": "A staple Rabi crop grown in cool climates.",
+          "season": "Rabi",
+          "soilType": "Loamy soil",
+          "waterRequirement": "Medium",
+          "harvestTime": "March-April",
+          "nutrients": ["Carbohydrates", "Protein", "Fiber"],
+          "pricePerQuintal": 2200,
+          "origin": "Punjab, India",
+          "duration": "120 days"
+        },
+        {
+          "id": 2,
+          "name": "Rice",
+          "thumbnail": "https://picsum.photos/200/150?random=2",
+          "details": "A Kharif crop requiring high water availability.",
+          "season": "Kharif",
+          "soilType": "Clay soil",
+          "waterRequirement": "High",
+          "harvestTime": "October-November",
+          "nutrients": ["Carbohydrates", "Vitamin B", "Iron"],
+          "pricePerQuintal": 1800,
+          "origin": "West Bengal, India",
+          "duration": "150 days"
+        },
+        {
+          "id": 3,
+          "name": "Maize",
+          "thumbnail": "https://picsum.photos/200/150?random=3",
+          "details": "Widely grown cereal crop for food and fodder.",
+          "season": "Kharif",
+          "soilType": "Alluvial soil",
+          "waterRequirement": "Medium",
+          "harvestTime": "September-October",
+          "nutrients": ["Carbohydrates", "Fiber", "Vitamin A"],
+          "pricePerQuintal": 1700,
+          "origin": "Bihar, India",
+          "duration": "110 days"
+        },
+        {
+          "id": 4,
+          "name": "Barley",
+          "thumbnail": "https://picsum.photos/200/150?random=4",
+          "details": "Rabi crop used for malt and animal feed.",
+          "season": "Rabi",
+          "soilType": "Well-drained soil",
+          "waterRequirement": "Low",
+          "harvestTime": "March",
+          "nutrients": ["Carbohydrates", "Fiber", "Magnesium"],
+          "pricePerQuintal": 1600,
+          "origin": "Rajasthan, India",
+          "duration": "115 days"
+        },
+        {
+          "id": 5,
+          "name": "Sugarcane",
+          "thumbnail": "https://picsum.photos/200/150?random=5",
+          "details": "Tropical cash crop for sugar and ethanol.",
+          "season": "Annual",
+          "soilType": "Alluvial soil",
+          "waterRequirement": "High",
+          "harvestTime": "December-March",
+          "nutrients": ["Carbohydrates", "Calcium", "Iron"],
+          "pricePerQuintal": 300,
+          "origin": "Uttar Pradesh, India",
+          "duration": "365 days"
+        },
+        {
+          "id": 6,
+          "name": "Cotton",
+          "thumbnail": "https://picsum.photos/200/150?random=6",
+          "details": "Important cash crop for textiles.",
+          "season": "Kharif",
+          "soilType": "Black soil",
+          "waterRequirement": "Medium",
+          "harvestTime": "November-December",
+          "nutrients": ["Protein (seeds)", "Oil"],
+          "pricePerQuintal": 6000,
+          "origin": "Maharashtra, India",
+          "duration": "180 days"
+        },
+        {
+          "id": 7,
+          "name": "Mustard",
+          "thumbnail": "https://picsum.photos/200/150?random=7",
+          "details": "Rabi oilseed crop.",
+          "season": "Rabi",
+          "soilType": "Loamy soil",
+          "waterRequirement": "Low",
+          "harvestTime": "February-March",
+          "nutrients": ["Protein", "Omega-3", "Iron"],
+          "pricePerQuintal": 5400,
+          "origin": "Rajasthan, India",
+          "duration": "120 days"
+        },
+        {
+          "id": 8,
+          "name": "Groundnut",
+          "thumbnail": "https://picsum.photos/200/150?random=8",
+          "details": "Kharif oilseed crop also rich in protein.",
+          "season": "Kharif",
+          "soilType": "Sandy loam",
+          "waterRequirement": "Medium",
+          "harvestTime": "October",
+          "nutrients": ["Protein", "Vitamin E", "Magnesium"],
+          "pricePerQuintal": 5200,
+          "origin": "Gujarat, India",
+          "duration": "140 days"
+        },
+        {
+          "id": 9,
+          "name": "Soybean",
+          "thumbnail": "https://picsum.photos/200/150?random=9",
+          "details": "Protein-rich oilseed crop.",
+          "season": "Kharif",
+          "soilType": "Well-drained soil",
+          "waterRequirement": "Medium",
+          "harvestTime": "October",
+          "nutrients": ["Protein", "Calcium", "Iron"],
+          "pricePerQuintal": 4000,
+          "origin": "Madhya Pradesh, India",
+          "duration": "120 days"
+        },
+        {
+          "id": 10,
+          "name": "Pulses (Chickpea)",
+          "thumbnail": "https://picsum.photos/200/150?random=10",
+          "details": "Rabi crop, excellent protein source.",
+          "season": "Rabi",
+          "soilType": "Sandy loam",
+          "waterRequirement": "Low",
+          "harvestTime": "March",
+          "nutrients": ["Protein", "Iron", "Folate"],
+          "pricePerQuintal": 5100,
+          "origin": "Madhya Pradesh, India",
+          "duration": "100 days"
+        },
+        {
+          "id": 11,
+          "name": "Millets (Bajra)",
+          "thumbnail": "https://picsum.photos/200/150?random=11",
+          "details": "Nutritious Kharif crop for dry areas.",
+          "season": "Kharif",
+          "soilType": "Sandy soil",
+          "waterRequirement": "Low",
+          "harvestTime": "September",
+          "nutrients": ["Calcium", "Iron", "Fiber"],
+          "pricePerQuintal": 2100,
+          "origin": "Rajasthan, India",
+          "duration": "85 days"
+        },
+        {
+          "id": 12,
+          "name": "Jute",
+          "thumbnail": "https://picsum.photos/200/150?random=12",
+          "details": "Kharif crop used for fiber production.",
+          "season": "Kharif",
+          "soilType": "Clay loam",
+          "waterRequirement": "High",
+          "harvestTime": "July-August",
+          "nutrients": ["Fiber (industrial use)"],
+          "pricePerQuintal": 3500,
+          "origin": "West Bengal, India",
+          "duration": "120 days"
+        },
+        {
+          "id": 13,
+          "name": "Potato",
+          "thumbnail": "https://picsum.photos/200/150?random=13",
+          "details": "Rabi tuber crop with global demand.",
+          "season": "Rabi",
+          "soilType": "Loamy soil",
+          "waterRequirement": "Medium",
+          "harvestTime": "January-February",
+          "nutrients": ["Carbohydrates", "Vitamin C", "Potassium"],
+          "pricePerQuintal": 1600,
+          "origin": "Uttar Pradesh, India",
+          "duration": "90 days"
+        },
+        {
+          "id": 14,
+          "name": "Onion",
+          "thumbnail": "https://picsum.photos/200/150?random=14",
+          "details": "Important spice and vegetable crop.",
+          "season": "Rabi/Kharif",
+          "soilType": "Sandy loam",
+          "waterRequirement": "Medium",
+          "harvestTime": "April & November",
+          "nutrients": ["Vitamin C", "Fiber", "Antioxidants"],
+          "pricePerQuintal": 2500,
+          "origin": "Maharashtra, India",
+          "duration": "110 days"
+        },
+        {
+          "id": 15,
+          "name": "Tomato",
+          "thumbnail": "https://picsum.photos/200/150?random=15",
+          "details": "Widely grown vegetable with high demand.",
+          "season": "Kharif/Rabi",
+          "soilType": "Loamy soil",
+          "waterRequirement": "Medium",
+          "harvestTime": "June & December",
+          "nutrients": ["Vitamin C", "Lycopene", "Potassium"],
+          "pricePerQuintal": 1800,
+          "origin": "Andhra Pradesh, India",
+          "duration": "100 days"
+        }
+      ]
+    }
+    
+    
+  }
+}
